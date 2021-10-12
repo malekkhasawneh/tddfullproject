@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:tddfullproject/features/random_number/domain/entity/random_number.dart';
 
-class TriviaDisplay extends StatelessWidget {
-  final RandomNumber numberTrivia;
+class RandomDisplay extends StatelessWidget {
+  final RandomNumber Randomnumber;
 
-  const TriviaDisplay({
-    required this.numberTrivia,
+  const RandomDisplay({
+    required this.Randomnumber,
   }) ;
 
   @override
@@ -15,14 +15,14 @@ class TriviaDisplay extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            numberTrivia.number.toString(),
+            Randomnumber.number.toString(),
             style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
           ),
           Expanded(
             child: Center(
               child: SingleChildScrollView(
                 child: Text(
-                  numberTrivia.text,
+                 Randomnumber.text,
                   style: TextStyle(fontSize: 25),
                   textAlign: TextAlign.center,
                 ),
