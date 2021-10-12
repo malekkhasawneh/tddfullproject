@@ -8,7 +8,7 @@ import 'package:tddfullproject/features/random_number/data/models/random_number_
 abstract class RandomNumberLocalDataSource {
   Future<RandomNumberModel> getLastRandomNumber();
 
-  Future<void> cacheRandomNumber(RandomNumberModel triviaToCache);
+  Future<void> cacheRandomNumber(RandomNumberModel randomToCache);
 }
 
 const CACHED_RANDOM_NUMBER = 'CACHED_RANDOM_NUMBER';
