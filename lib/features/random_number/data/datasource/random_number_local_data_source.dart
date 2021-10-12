@@ -11,7 +11,7 @@ abstract class RandomNumberLocalDataSource {
   Future<void> cacheRandomNumber(RandomNumberModel triviaToCache);
 }
 
-const CACHED_NUMBER_TRIVIA = 'CACHED_NUMBER_TRIVIA';
+const CACHED_RANDOM_NUMBER = 'CACHED_RANDOM_NUMBER';
 
 class RandomNumberLocalDataSourceImpl implements RandomNumberLocalDataSource {
   final SharedPreferences sharedPreferences;
@@ -20,7 +20,7 @@ class RandomNumberLocalDataSourceImpl implements RandomNumberLocalDataSource {
 
   @override
   Future<RandomNumberModel> getLastRandomNumber() {
-    final jsonString = sharedPreferences.getString(CACHED_NUMBER_TRIVIA);
+    final jsonString = sharedPreferences.getString(CACHED_RANDOM_NUMBER);
     if (jsonString != null) {
       return Future.value(RandomNumberModel.fromJson(json.decode(jsonString)));
     } else {
@@ -29,10 +29,10 @@ class RandomNumberLocalDataSourceImpl implements RandomNumberLocalDataSource {
   }
 
   @override
-  Future<void> cacheRandomNumber(RandomNumberModel triviaToCache) {
+  Future<void> cacheRandomNumber(RandomNumberModel randomToCache) {
     return sharedPreferences.setString(
-      CACHED_NUMBER_TRIVIA,
-      json.encode(triviaToCache.toJson()),
+      CACHED_RANDOM_NUMBER,
+      json.encode(randomToCache.toJson()),
     );
   }
 }
