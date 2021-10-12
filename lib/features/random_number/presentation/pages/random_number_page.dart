@@ -52,7 +52,7 @@ class RandomNumberPage extends StatelessWidget {
                   } else if (state is Loading) {
                     return LoadingWidget();
                   } else if (state is Loaded) {
-                    return TriviaDisplay(numberTrivia: state.random);
+                    return RandomDisplay(randomNumber: state.random);
                   } else if (state is Error) {
                     return MessageDisplay(
                       message: state.message,
